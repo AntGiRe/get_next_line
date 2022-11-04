@@ -12,14 +12,14 @@
 
 #include "get_next_line.h"
 
-int		ft_getindex(char *s)
+int	ft_getindex(char *s)
 {
 	int		i;
 
 	i = 0;
-	while(s[i] && s[i] != '\n')
+	while (s[i] && s[i] != '\n')
 		i++;
-	return(i);
+	return (i);
 }
 
 size_t	ft_strlen(const char *s)
@@ -27,13 +27,12 @@ size_t	ft_strlen(const char *s)
 	int	counter;
 
 	counter = 0;
-	if(!s)
+	if (!s)
 		return (0);
 	while (s[counter] != '\0')
 		counter++;
 	return (counter);
 }
-
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -41,7 +40,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		i;
 	int		j;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	if (!s1)
 	{
@@ -53,17 +52,11 @@ char	*ft_strjoin(char *s1, char *s2)
 	s = (char *) malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!s)
 		return (NULL);
-	while (s1[i] != '\0')
-	{
+	while (s1[++i] != '\0')
 		s[i] = s1[i];
-		i++;
-	}
 	while (s2[j] != '\0')
-	{
-		s[i + j] = s2[j];
-		j++;
-	}
-	s[i + j] = '\0';
+		s[i++] = s2[j++];
+	s[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
 	return (s);
 }

@@ -29,7 +29,7 @@ char	*ft_getleftover(char *s)
 	if (!leftover_part)
 		return (NULL);
 	i++;
-	while(s[i])
+	while (s[i])
 		leftover_part[counter++] = s[i++];
 	leftover_part[counter] = '\0';
 	free (s);
@@ -45,7 +45,7 @@ char	*ft_read(int fd, char *leftover_part)
 	buff = malloc(sizeof(char *) * (BUFFER_SIZE + 1));
 	if (!buff)
 		return (NULL);
-	while(!ft_strchr(leftover_part ,'\n') && bytes != 0)
+	while (!ft_strchr(leftover_part, '\n') && bytes != 0)
 	{
 		bytes = read(fd, buff, BUFFER_SIZE);
 		if (bytes == -1)
