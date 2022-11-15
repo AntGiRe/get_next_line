@@ -6,7 +6,7 @@
 /*   By: agil-rey <agil-rey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:01:31 by agil-rey          #+#    #+#             */
-/*   Updated: 2022/11/15 12:18:37 by agil-rey         ###   ########.fr       */
+/*   Updated: 2022/11/15 13:16:39 by agil-rey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char	*ft_read(int fd, char *leftover_part)
 		if (bytes == -1)
 		{
 			free (buff);
+			free (leftover_part);
 			return (NULL);
 		}
 		buff[bytes] = '\0';
